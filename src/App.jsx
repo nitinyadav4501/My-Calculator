@@ -13,9 +13,10 @@ function App() {
 
   const calculate = () => {
     try {
-      setDisplay(eval(display))
+      const result = new Function('return ' + display)();
+      setDisplay(result.toString());
     } catch (error) {
-      setDisplay("error")
+      setDisplay("error");
     }
   }
 
